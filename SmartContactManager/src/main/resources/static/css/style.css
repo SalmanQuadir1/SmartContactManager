@@ -5,6 +5,9 @@ body {
 .l-5 {
 	margin-left: 18rem !important;
 }
+.bg-primary{
+	background:#009688 !important;
+}
 
 a:hover {
 	color: red !important;
@@ -14,5 +17,13 @@ p {
 	font-family: 'Dancing Script', cursive;
 	font-family: 'Satisfy', cursive;
 	font-family: 'Sevillana', cursive;
-	font-size:1.7rem;
+	font-size:1.1rem;
+}
+
+.banner{
+	width:100%;
+	height:93vh;
+	background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../images/banner-removebg-preview.png);
+	background-repeat:no-repeat;
+	background-size:cover;
 }
