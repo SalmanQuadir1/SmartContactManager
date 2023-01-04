@@ -18,7 +18,11 @@ public class HomeController {
 	@Autowired
 	private UserRepository userrepo;
 
-	@RequestMapping("/test")
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
+	}
+	@RequestMapping("/home")
 	public String test(Model model) {
 		User user = new User();
 		user.setName("Salman");
@@ -36,9 +40,11 @@ public class HomeController {
 		return "views/home";
 	}
 
-	@RequestMapping("/")
-	public String login() {
-		return "login";
+	
+	@RequestMapping("/register")
+	public String Signup() {
+		
+		return "views/signup";
 	}
 
 }
