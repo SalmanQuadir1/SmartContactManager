@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="fragments/base::layout(~{::.sec},~{::title})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home page</title>
+</head>
+<body>
+
+	<section class="sec  mt-4">
+		<div class="row">
+			<div class="col-md-6">
+				<h2 class="text-center font-italic">Contact Page</h2>
+				<p class="text-justify p-2">Lorem ipsum is a dummy text used as
+					a placeholder in the publishing and graphic design industries. It's
+					used to demonstrate the visual form of a document or a typeface,
+					without the need for the actual content. Lorem ipsum is derived
+					from a passage of Latin text written by the Roman philosopher
+					Cicero in 45 BC, but the text has been modified and rearranged over
+					the years to make it more suitable for use as placeholder text. The
+					most common version of Lorem ipsum begins with the follow</p>
+
+			</div>
+			<div class="col-md-6">
+				<div
+					class="formbold-main-wrapper w-75 ml-5 mt-5  shadow  p-4 card">
+					<!-- Author: FormBold Team -->
+					<!-- Learn More: https://formbold.com -->
+					<div class="formbold-form-wrapper">
+						<form action="https://formbold.com/s/FORM_ID" method="POST">
+							<div class="formbold-mb-5">
+								<label for="name" class=" bold-form-label"> Full Name </label> <input
+									type="text" name="name" id="name" placeholder="Full Name"
+									class=" form-control formbold-form-input" />
+							</div>
+
+							<div class="formbold-mb-5">
+								<label for="email" class=" formbold-form-label"> Email
+									Address </label> <input type="email" name="email" id="email"
+									placeholder="Enter your email"
+									class=" form-control formbold-form-input" />
+							</div>
+
+							<div class="formbold-mb-5">
+								<label for="subject" class="formbold-form-label">
+									Subject </label> <input type="text" name="subject" id="subject"
+									placeholder="Enter your subject"
+									class=" form-control formbold-form-input" />
+							</div>
+
+							<div class="formbold-mb-5">
+								<label for="message" class="formbold-form-label">
+									Message </label>
+								<textarea rows="6" name="message" id="message"
+									placeholder="Type your message"
+									class=" form-control formbold-form-input"></textarea>
+							</div>
+
+							<div class="text-center">
+								<button class=" btn btn-outline-danger formbold-btn mt-2">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+</body>
+</html>

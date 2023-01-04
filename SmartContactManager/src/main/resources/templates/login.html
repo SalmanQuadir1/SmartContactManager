@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="fragments/base::layout(~{::.sec},~{::title})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+<body>
+	<div class="container ">
+		<section class="sec  mt-4 l-5 w-50 " >
+
+
+			<form class="bg-white shadow p-5 " method="post"
+				th:action="@{/login}" >
+				<h2 class="font-italic text-center">Login</h2>
+				<div class="form-group">
+					<label for="staticEmail" class=" col-form-label">Email</label> <input
+						type="text" name="email" 
+						class="form-control" id="staticEmail">
+					
+				</div>
+
+
+				<div class="form-group">
+					<label for="inputPassword" class=" col-form-label">Password</label>
+					<input type="password" name="password" class="form-control"
+						id="inputPassword" 
+						placeholder="Password">
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox"
+						id="inlineCheckbox1" name="agreed"
+						> <label
+						class="form-check-label" for="inlineCheckbox1">Agree on
+						Terms and Conditions </label>
+
+				</div>
+				
+
+
+				<div class="text-center mt-4">
+					<button class="btn btn-outline-danger">Login</button>
+				</div>
+			</form>
+
+		</section>
+	</div>
+
+</body>
+</html>
