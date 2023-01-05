@@ -7,45 +7,62 @@
 </head>
 <body>
 
-	<section
-		class="sec banner p-3">
+	<section class="sec banner p-3">
 		<div class="container">
+
 			<div class="row ">
 				<div class="col-md-6 offset-md-3">
-					<form class="bg-white shadow p-5 " method="post"
-						th:action="@{/do_register}">
-						<div class="text-center">
-						<img th:src="@{/images/man.png}" width="80px"/>
+					<div  th:if="${session.message}" th:classappend="${session.message.type}" class="alert " role="alert">
+						<p th:text="${session.message.content}"></p>
+						<th:block th:text="${#session.removeAttribute('message')}"></th:block>
 						</div>
-						
+					<form novalidate class="bg-white shadow p-5 " method="post"
+						th:action="@{/do_register}" th:object="${user}">
+						<div class="text-center">
+							<img th:src="@{/images/man.png}" width="80px" />
+						</div>
+
 						<h2 class="font-italic text-center">Register Here</h2>
 						<div class="form-group">
 							<label for="Username" class=" col-form-label">Username</label> <input
-								type="text" name="name" class="form-control" id="Username">
+								type="text" name="name" th:value="${user.name}"
+								class="form-control " th:classappend="${#fields.hasErrors('name')?'is-invalid':''}"id="Username">
+								
+								<div class="invalid-feedback" th:each="e:${#fields.errors('name')}" th:text="${e}">
+     							 </div>
 
 						</div>
 						<div class="form-group">
 							<label for="staticEmail" class=" col-form-label">Email</label> <input
-								type="text" name="email" class="form-control" id="staticEmail">
+								type="text" name="email" th:value="${user.email}"
+								class="form-control" id="staticEmail">
 
 						</div>
 
 
 						<div class="form-group">
 							<label for="inputPassword" class=" col-form-label">Password</label>
-							<input type="password" name="password" class="form-control"
-								id="inputPassword" placeholder="Password">
+							<input type="password" th:value="${user.password}"
+								name="password" class="form-control" id="inputPassword"
+								placeholder="Password">
 						</div>
 						<div class="form-group">
 							<label for="inputPassword" class=" col-form-label">About</label>
-							<textarea class="form-control" rows="4" cols="" name="about"></textarea>
+							<textarea class="form-control" rows="4" cols=""
+								th:text="${user.about}" name="about"></textarea>
 						</div>
+						<div class="form-group form-check text-center">
+							<input type="checkbox" name="agreement" class="form-check-input"
+								id="agreement" /> <label for="agreement">Accept Terms
+								and Conditions</label>
+						</div>
+
 
 
 
 						<div class="text-center mt-4">
 							<button type="submit" class="btn btn-primary  text-white">Submit</button>
-							<button type="reset"class="btn btn-warning  text-white">Reset</button>
+							<button type="reset" class="btn btn-warning  text-white">Reset</button>
 
 						</div>
 

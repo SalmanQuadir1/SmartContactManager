@@ -38,18 +38,23 @@
 					th:href="@{/register}">Signup</a></li>
 
 			</ul>
-			
+
 		</div>
 	</nav>
+
 	
-		<div th:replace="${content}"></div>
+	<div th:replace="${content}"></div>
 
 
 	<div>
 		<h2 class=" text-danger font-weight-bold p-5" id="typer"></h2>
 	</div>
+	<footer class="footer bg-dark mt-4 p-5">
+		<h3 class="text-center text-white">Copyright@2023</h3>
+	</footer>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.8/typed.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.8/typed.min.js"></script>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script th:src="@{js/jquey.min.js}"></script>
 	<script th:src="@{js/popper.min.js}"></script>

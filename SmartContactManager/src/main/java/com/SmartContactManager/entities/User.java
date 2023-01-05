@@ -4,31 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@NotBlank(message = "Name field is required !!")
+	@Size(min = 2, max = 20, message = "Min 2 And Max 20  characters are allowed!!")
 	private String name;
-	private String description;
+	@Column(unique = true)
 	private String email;
 	private String role;
 	private String imageUrl;
-	private String enabled;	
+	private boolean enabled;
 	private String about;
 	private String password;
 
-	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy = "user")
-	private List<Contact> contact=new ArrayList<Contact>();
-
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	private List<Contact> contact = new ArrayList<Contact>();
 
 	/**
 	 * @return the id
@@ -37,14 +40,12 @@ public class User {
 		return id;
 	}
 
-
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	/**
 	 * @return the name
@@ -53,7 +54,6 @@ public class User {
 		return name;
 	}
 
-
 	/**
 	 * @param name the name to set
 	 */
@@ -61,30 +61,16 @@ public class User {
 		this.name = name;
 	}
 
-
 	/**
 	 * @return the description
 	 */
-	public String getDescription() {
-		return description;
-	}
-
-
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
+	
 	/**
 	 * @return the email
 	 */
 	public String getEmail() {
 		return email;
 	}
-
 
 	/**
 	 * @param email the email to set
@@ -93,14 +79,12 @@ public class User {
 		this.email = email;
 	}
 
-
 	/**
 	 * @return the role
 	 */
 	public String getRole() {
 		return role;
 	}
-
 
 	/**
 	 * @param role the role to set
@@ -109,14 +93,12 @@ public class User {
 		this.role = role;
 	}
 
-
 	/**
 	 * @return the imageUrl
 	 */
 	public String getImageUrl() {
 		return imageUrl;
 	}
-
 
 	/**
 	 * @param imageUrl the imageUrl to set
@@ -125,30 +107,23 @@ public class User {
 		this.imageUrl = imageUrl;
 	}
 
-
 	/**
 	 * @return the enabled
 	 */
-	public String getEnabled() {
+	public boolean isEnabled() {
 		return enabled;
 	}
-
 
 	/**
 	 * @param enabled the enabled to set
 	 */
-	public void setEnabled(String enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-
-	/**
-	 * @return the about
-	 */
 	public String getAbout() {
 		return about;
 	}
-
 
 	/**
 	 * @param about the about to set
@@ -157,14 +132,12 @@ public class User {
 		this.about = about;
 	}
 
-
 	/**
 	 * @return the password
 	 */
 	public String getPassword() {
 		return password;
 	}
-
 
 	/**
 	 * @param password the password to set
@@ -173,14 +146,12 @@ public class User {
 		this.password = password;
 	}
 
-
 	/**
 	 * @return the contact
 	 */
 	public List<Contact> getContact() {
 		return contact;
 	}
-
 
 	/**
 	 * @param contact the contact to set
@@ -189,13 +160,11 @@ public class User {
 		this.contact = contact;
 	}
 
-
-	public User(int id, String name, String description, String email, String role, String imageUrl, String enabled,
+	public User(int id, String name, String email, String role, String imageUrl, boolean enabled,
 			String about, String password, List<Contact> contact) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.description = description;
 		this.email = email;
 		this.role = role;
 		this.imageUrl = imageUrl;
@@ -205,19 +174,16 @@ public class User {
 		this.contact = contact;
 	}
 
-
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
-
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ",   email=" + email + ", role="
+				+ role + ", imageUrl=" + imageUrl + ", enabled=" + enabled + ", about=" + about + ", password="
+				+ password + ", contact=" + contact + "]";
+	}
 
 }
