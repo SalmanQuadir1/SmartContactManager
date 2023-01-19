@@ -28,13 +28,13 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 			<a class="navbar-brand text-danger font-weight-bold "
-				th:href="@{/test}">Contact Manager</a>
+				th:href="@{/test}">Manager</a>
 			<ul class="navbar-nav ml-auto mt-2  text-uppercase mt-lg-0">
 				<!-- <li class="nav-item active"><a class="nav-link text-white"
 					th:href="@{/home}">Home <span class="sr-only">(current)</span></a></li> -->
 
 				<li class="nav-item"><a class="nav-link text-white"><span
-						th:text="${user.name}"></span></a></li>
+						class="text-danger font-weight-bold"th:text="${user.name}"></span></a></li>
 
 				<li class="nav-item"><a class="nav-link text-white"
 					th:href="@{/logout}">Logout</a></li>

@@ -17,6 +17,7 @@ public class Contact {
 	private String email;
 	private String phone;
 	private String image;
+	private String work;
 	private String secondName;
 	
 	@ManyToOne
@@ -25,8 +26,23 @@ public class Contact {
 	/**
 	 * @return the user
 	 */
+	
+	
+	
 	public User getUser() {
 		return user;
+	}
+	/**
+	 * @return the work
+	 */
+	public String getWork() {
+		return work;
+	}
+	/**
+	 * @param work the work to set
+	 */
+	public void setWork(String work) {
+		this.work = work;
 	}
 	/**
 	 * @param user the user to set
@@ -101,8 +117,8 @@ public class Contact {
 	public void setSecondName(String secondName) {
 		this.secondName = secondName;
 	}
-	public Contact(int cid, String name, String description, String email, String phone, String image,
-			String secondName) {
+	public Contact(int cid, String name, String description, String email, String phone, String image, String work,
+			String secondName, User user) {
 		super();
 		this.cid = cid;
 		this.name = name;
@@ -110,12 +126,22 @@ public class Contact {
 		this.email = email;
 		this.phone = phone;
 		this.image = image;
+		this.work = work;
 		this.secondName = secondName;
+		this.user = user;
 	}
+	
+	/*
+	 * @Override public String toString() { return "Contact [cid=" + cid + ", name="
+	 * + name + ", description=" + description + ", email=" + email + ", phone=" +
+	 * phone + ", image=" + image + ", work=" + work + ", secondName=" + secondName
+	 * + ", user=" + user + "]"; }
+	 */
 	public Contact() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 	
 	

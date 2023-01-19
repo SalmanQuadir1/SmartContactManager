@@ -3,7 +3,7 @@ body {
 }
 
 .l-5 {
-	margin-left: 18rem !important;
+	margin-left: 22rem !important;
 }
 
 .bg-primary {
@@ -83,4 +83,11 @@ p {
 	right: 30px;
 	font-size: 36px;
 	cursor: pointer;
+}
+.back{
+	background: rgba(245, 245, 245, 0.7) !important;
+	width: 28rem;
+}
+.back1{
+	background: rgba(245, 245, 245, 0.7) !important;
 }
