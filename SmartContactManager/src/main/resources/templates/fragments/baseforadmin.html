@@ -6,7 +6,10 @@
 <title th:replace="${title}"></title>
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -34,7 +37,7 @@
 					th:href="@{/home}">Home <span class="sr-only">(current)</span></a></li> -->
 
 				<li class="nav-item"><a class="nav-link text-white"><span
-						class="text-danger font-weight-bold"th:text="${user.name}"></span></a></li>
+						class="text-danger font-weight-bold" th:text="${user.name}"></span></a></li>
 
 				<li class="nav-item"><a class="nav-link text-white"
 					th:href="@{/logout}">Logout</a></li>
@@ -44,19 +47,30 @@
 		</div>
 	</nav>
 	<div class="sidebar mt-2">
-	<span onclick="toggleSidebar()" class="crossBtn">&times;</span>
-	    <a  href=""  th:href="@{/user/index}" class="item"><i class="fas fa-home pr-2"></i>Home</a>
-		<a  href="" class="item"><i class="fas fa-id-card-alt pr-2"></i>View Contacts</a>
-		<a  th:href="@{/user/add-contact}" class="item"><i class="fas fa-pencil-alt pr-2"></i>Add Contact</a>
-		<a  href="" class="item"><i class="fas fa-user-circle pr-2"></i>Your Profile</a>
-		<a  href="" class="item"><i class="fas fa-cogs pr-2"></i>Settings</a>
-		<a  href="" class="item" th:href="@{/logout}"><i class="fas fa-sign-out-alt pr-2" ></i>Logout</a>
+		<span onclick="toggleSidebar()" class="crossBtn">&times;</span> <a
+			href="" th:href="@{/user/index}" class="item"><i
+			class="fas fa-home pr-2"></i>Home</a> <a href="" class="item"><i
+			class="fas fa-id-card-alt pr-2"></i>View Contacts</a> <a
+			th:href="@{/user/add-contact}" class="item"><i
+			class="fas fa-pencil-alt pr-2"></i>Add Contact</a> <a href=""
+			class="item"><i class="fas fa-user-circle pr-2"></i>Your Profile</a>
+		<a href="" class="item"><i class="fas fa-cogs pr-2"></i>Settings</a> <a
+			href="" class="item" th:href="@{/logout}"><i
+			class="fas fa-sign-out-alt pr-2"></i>Logout</a>
 		<div class="divider"></div>
-		
-	
+
+
 	</div>
 	<div class="content mt-5">
-	<i onclick="toggleSidebar()" class="fas fa-bars m-4"></i>
+		<i onclick="toggleSidebar()" class="fas fa-bars m-4"></i>
+		<!-- message box -->
+		<div class="container " th:if="${session.message}">
+			<div  class="alert " role="alert" th:classappend="${'alert-'+session.message.type}">
+			<span th:text="${session.message.content}"></span>
+			</div>
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+
 		<div th:replace="${content}"></div>
 	</div>
 
@@ -72,7 +86,7 @@
 	<script th:src="@{/js/popper.min.js}"></script>
 	<script th:src="@{/js/bootstrap.min.js}"></script>
 	<script th:src="@{/js/script.js}"></script>
-	
+
 
 	<!-- <script type="text/javascript">
 		new Typed('#typer', {
